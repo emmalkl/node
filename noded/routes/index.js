@@ -18,17 +18,22 @@ router.get('/xx',function(req, res, next){
 });
 
 router.get('/reg',User.reg);
+router.post('/reg',User.do_reg);
 
 
+/*
 '{"id":1,"name":"haha","age":15}'
 $.post('/user/checkname',{'username':name},function(data){
    JSON.parse(data);
 },'json')
 function checkname(){
-   $name=$this->input->post('username');
-   $rs=$this->user_model->get_name($name);
-   echo $rs;
-}
+  //php语言
+  //  $name=$this->input->post('username');
+  //  $rs=$this->user_model->get_name($name);
+  //  echo json_encode($rs);
+
+   //express表达[中间层到前端的跨域与中间层到后端的跨域]   
+}*/
 
 
 module.exports = router;
