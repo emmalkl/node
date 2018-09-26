@@ -18,7 +18,10 @@ router.get('/xx',function(req, res, next){
 });
 
 router.get('/reg',User.reg);
+//crypto加密
 router.post('/reg',User.do_reg);
+//用户名重名
+router.post('/checkname',User.checkname);
 
 
 /*
