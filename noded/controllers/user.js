@@ -1,11 +1,6 @@
 var crypto=require('crypto');//类库
-var mysql= require('mysql');
-var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'me',
-  password : 'secret',
-  database : 'sunshine'
-});
+var User_model=require('../models/user_model.js')
+
 
 
 exports.reg=function(req,res,next){
@@ -17,17 +12,14 @@ exports.do_reg=function(req,res,next){
    var name=req.body.username;
    var pass=req.body.pass;
 //    console.log(name);
-   console.log(pass);//输出密码
+   //console.log(pass);//输出密码
    var mpass=xmd5(pass);
    //console.log(mpass);//输出加密码
 
-    connection.connect();//打开数据库连接
-    connection.query('select * from user', function (error, results, fields) {//调query查询
-    if (error) throw error;
-    //console.log('The solution is: ', results[0].solution);
-    console.log(results);
-    }); 
-    connection.end();
+   //!!!!!!数据库相联系 function里的data就是user_model.js里的results
+    User_model.sel_data(name,pass,function(data){//实参
+        console.log(data);//打印出了results
+    })
 }
 function xmd5(str){
    var hash=crypto.createHash('md5');//md5,hash算法
