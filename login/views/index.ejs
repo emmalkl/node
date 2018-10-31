@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>nihao</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <% if(scon.USER_ID == null){%>
+      <a>未登录</a>
+    <% }else{%>
+      <a><%= scon.ACCOUNT %>已登录</a>
+    <% }%>
+    <h1>nihao</h1>
+    <p>wlcome to login</p>
+    <% blogs.forEach(function(blog,index){ %>
+      <h3><%= blog.TITLE %></h3>
+      <p><%= blog.CONTENT %></p>
+      <hr>
+    <%}) %>
+  </body>
+</html>
